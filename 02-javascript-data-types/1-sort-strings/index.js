@@ -6,9 +6,9 @@
  */
 export function sortStrings(arr, param = 'asc') {
   const arrString = [...arr];
-  if (param === 'desc') {
-    return arrString.sort((a, b) => b.localeCompare(a, ['ru', 'en'], {caseFirst: 'upper'}));
-  }
-  return arrString.sort((a, b) => a.localeCompare(b, ['ru', 'en'], { caseFirst: 'upper' }));
+
+  return arrString.sort((a, b) => (param === 'asc') ?
+    a.localeCompare(b, ['ru', 'en'], { caseFirst: 'upper' }) :
+    b.localeCompare(a, ['ru', 'en'], { caseFirst: 'lower' }));
 }
 
